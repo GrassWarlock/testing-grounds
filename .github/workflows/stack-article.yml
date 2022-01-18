@@ -8,7 +8,7 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with: 
-          format: 'json'
+          format: 'csv'
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
