@@ -9,7 +9,6 @@ jobs:
         id: files
         with:
           format: space-delimited
-          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
