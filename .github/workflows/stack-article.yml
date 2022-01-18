@@ -11,7 +11,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: (CI) Dependencies update check
-      - run: |
+        run: |
           current_commit=`git log -n 1 --pretty=format:%H`
           echo $current_commit
           last_deps_mod_commit=`git log -n 1 --pretty=format:%H -- composer.json`
