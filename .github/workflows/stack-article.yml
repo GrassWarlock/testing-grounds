@@ -1,7 +1,7 @@
 name: Publish StackOverflow Articles
 on: [push]
 jobs:
-  Publish Article:
+  Publish_Article:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
