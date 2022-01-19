@@ -14,7 +14,7 @@ if target_file.endswith('.md'):
             title = line.replace("#", "", 1)
             lines.remove(line)
             break
-    body = lines.join("\n")
+    body = "\n".join(lines)
     article_type = "knowledge-article"
     tags = [x for x in target_file.split("/") if len(x) > 1]
     key = sys.argv[3]
