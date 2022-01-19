@@ -23,11 +23,11 @@ if target_file.endswith('.md'):
     payload = {"title" : title, "body" : body, "article_type" : article_type, "tags" : tags, "key" : key, "access_token" : access_token}
     print(payload)
     if operation == "add":
-        print("opadd")
-    if operation == "opmodify":
+        print("ad")
+    if operation == "modify":
         print("modify")
     if operation == "remove":
-        print("opremove")
+        print("remove")
     r = requests.get(base_url + "2.3/articles?pagesize=2&order=desc&sort=activity&site=stackoverflow")
 
     print(r.text, r.url)
