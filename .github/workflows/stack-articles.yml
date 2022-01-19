@@ -10,7 +10,9 @@ jobs:
     #REPLACE 'StackOverFlow' WITH THE NAME OF YOUR SECRETS ENVIRONMENT
     environment: StackOverflow
     #REPLACE 'STACK_KEY' AND 'STACK_ACCESS_TOKEN' WITH THE NAME OF YOUR ENVIRONMENT'S SECRETS
-
+    env:
+      KEY: ${{ secrets.STACK_KEY }} 
+      ACCESS_TOKEN: ${{ secrets.STACK_ACCESS_TOKEN }}
     #### NO NEED TO REPLACE ANYTHING BELOW THIS LINE ####
     steps:
     - name: "import checkout action"
@@ -45,11 +47,8 @@ jobs:
       run: |
         for modified_file in "${modified_files[@]}"
         do
-          echo python3 to_stackoverflow.py "${modified_file}" modify "$KEY" "$ACCESS_TOKEN"
+          python3 to_stackoverflow.py
         done
-      env:
-        KEY: ${{ secrets.STACK_KEY }} 
-        ACCESS_TOKEN: ${{ secrets.STACK_ACCESS_TOKEN }}
     - name: "iterate through removed files"
       run: |
         for removed_file in "${removed_files[@]}" 
