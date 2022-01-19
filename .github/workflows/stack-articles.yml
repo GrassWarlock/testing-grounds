@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 jobs:
               Stack-Articles:
-    runs-on: ubuntu-latest
+                    runs-on: ubuntu-latest
     #REPLACE 'StackOverFlow' WITH THE NAME OF YOUR SECRETS ENVIRONMENT
     environment: StackOverflow
     #REPLACE 'STACK_KEY' AND 'STACK_ACCESS_TOKEN' WITH THE NAME OF YOUR ENVIRONMENT'S SECRETS
