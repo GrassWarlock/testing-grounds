@@ -14,19 +14,22 @@ jobs:
           python-version: '3.x'
       - run: pip3 install requests
       - env:
-          KEY: ${{ secrets.key }} 
-          ACCESS_TOKEN: ${{ secrets.token }}
+          KEY: ${{ secrets.StackOverflow.KEY }} 
+          ACCESS_TOKEN: ${{ secrets.StackOverflow.ACCESS_TOKEN }}
         run: |
           mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added }}')
           mapfile -d ',' -t modified_files < <(printf '%s,' '${{ steps.files.outputs.modified }}')
           mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
-          for added_file in "${added_files[@]}"; do
+          for added_file in "${added_files[@]}"
+          do
             python3 to_stackoverflow.py ${added_file} add "$KEY" "$ACCESS_TOKEN"
           done
-          for modified_file in "${modified_files[@]}"; do
+          for modified_file in "${modified_files[@]}"
+          do
             python3 to_stackoverflow.py "${modified_file}" modify "$KEY" "$ACCESS_TOKEN"
           done
-          for removed_file in "${removed_files[@]}"; do
+          for removed_file in "${removed_files[@]}" 
+          do
             python3 to_stackoverflow.py ${removed_file} remove "$KEY" "$ACCESS_TOKEN"
           done
       - run: echo "🔎 Pushed from ${{ github.ref }} to ${{ github.repository }} and updated StackOverflow articles accordingly."
