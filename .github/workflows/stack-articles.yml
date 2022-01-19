@@ -47,7 +47,7 @@ jobs:
       run: |
         for modified_file in "${modified_files[@]}"
         do
-          python3 to_stackoverflow.py
+          python3 to_stackoverflow.py "${modified_file}" modify "$KEY" "$ACCESS_TOKEN"
         done
     - name: "iterate through removed files"
       run: |

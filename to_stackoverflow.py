@@ -1,9 +1,13 @@
+#IMPORTS
+import sys
+from textwrap import indent
+import requests
+import json
 
 base_url = "https://api.stackexchange.com/"
-print(base_url)
-
 file_path = sys.argv[1]
 file_name = sys.argv[1].split("/")[-1]
+
 
 if file_path.endswith('.md'):
     #READ ALL SCRIPT ARGUMENTS (PROVIDED IN THE .YML FILE)
