@@ -13,7 +13,7 @@ jobs:
     env:
       KEY: ${{ secrets.STACK_KEY }} 
       ACCESS_TOKEN: ${{ secrets.STACK_ACCESS_TOKEN }}
-    #### NO NEED TO REPLACE ANYTHING BELOW THIS LINE ####
+    #NO NEED TO REPLACE ANYTHING BELOW THIS LINE
     steps:
       - name: "import checkout action"
         uses: actions/checkout@v2
