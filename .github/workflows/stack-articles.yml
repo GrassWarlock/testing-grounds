@@ -1,7 +1,7 @@
 name: Update StackOverflow Articles
 on: [push]
 jobs:
-  TO_STACKOVERFLOW_ARTICLES:
+  StackOverflow_Articles:
     runs-on: ubuntu-latest
     #REPLACE 'StackOverFlow' WITH THE NAME OF YOUR SECRETS ENVIRONMENT
     environment: StackOverflow
