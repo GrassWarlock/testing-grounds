@@ -72,7 +72,7 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
 [See our website.](https://tachiyomi.org/)
 You can also reach out to us on [Discord](https://discord.gg/tachiyomi).
-
+gh
 ## License
 
     Copyright 2015 Javier Tomás
