@@ -1,8 +1,3 @@
-#IMPORTS
-import sys
-from textwrap import indent
-import requests
-import json
 
 base_url = "https://api.stackexchange.com/"
 print(base_url)
