@@ -12,4 +12,4 @@ payload = {"title" : title, "body" : body, "article_type" : article_type, "tags"
 
 r = requests.get(base_url + "2.3/articles?pagesize=2&order=desc&sort=activity&site=stackoverflow")
 
-print(r.text, r.url, r.url)
+print(r.text, r.url)
