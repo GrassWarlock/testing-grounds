@@ -1,5 +1,9 @@
 name: Update StackOverflow Articles
-on: [push]
+on: 
+  #REPLACE WITH EVENT OF YOUR CHOOSING
+  push:
+  #REPLACE WITH BRANCH NAME OF YOUR CHOOSING
+    branches: [ main ]
 jobs:
   StackOverflow_Articles:
     runs-on: ubuntu-latest
