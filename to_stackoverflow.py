@@ -24,8 +24,8 @@ if target_file.endswith('.md'):
     print(payload)
     if operation == "add":
         print("opadd")
-    if operation == "opmodify":
-        print("modify")
+    if operation == "modify":
+        print("opmodify")
     if operation == "remove":
         print("opremove")
     r = requests.get(base_url + "2.3/articles?pagesize=2&order=desc&sort=activity&site=stackoverflow")
