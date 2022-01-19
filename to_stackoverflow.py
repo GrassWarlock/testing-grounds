@@ -1,6 +1,4 @@
-#IMPORTS
 import sys
-from textwrap import indent
 import requests
 import json
 
