@@ -5,7 +5,7 @@ on:
   #REPLACE WITH BRANCH NAME OF YOUR CHOOSING
     branches: [ main ]
 jobs:
-  Stack-Articles:
+              Stack-Articles:
     runs-on: ubuntu-latest
     #REPLACE 'StackOverFlow' WITH THE NAME OF YOUR SECRETS ENVIRONMENT
     environment: StackOverflow
