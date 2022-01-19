@@ -12,12 +12,20 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - run: |
-          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
-          for added_modified_file in "${added_modified_files[@]}"; do
-            echo "Do something with this ${added_modified_file}."
-          done
       - run: pip3 install requests
+      - run: |
+          mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added }}')
+          mapfile -d ',' -t modified_files < <(printf '%s,' '${{ steps.files.outputs.modified }}')
+          mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
+          for added_file in "${added_files[@]}"; do
+            echo "Do something with this ${added_file}."
+          done
+          for modified_file in "${modified_files[@]}"; do
+            echo "Do something with this ${modified_file}."
+          done
+          for removed_file in "${removed_files[@]}"; do
+            echo "Do something with this ${removed_file}."
+          done
       - run: python3 to_stackoverflow.py
         env:
           key: ${{ secrets.key }} 

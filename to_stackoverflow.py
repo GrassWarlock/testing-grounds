@@ -1,6 +1,16 @@
+import sys
 import requests
 
 base_url = "https://api.stackexchange.com/"
+changed_files = sys.argv
+article_files = []
+for i in changed_files:
+    if i.endswith('.md'):
+        article_files.append(i)
+articles = {}
+for i in article_files:
+    f = open(i, 'r')
+    articles['d'] = {"title" : "", "body" : "", "article_type" : ""}
 title = ""
 body = ""
 article_type = ""
