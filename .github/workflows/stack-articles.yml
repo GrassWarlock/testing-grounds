@@ -35,7 +35,7 @@ jobs:
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         echo "added files: ${added_files}"
         echo "modified files: ${modified_files}"
-        echo "removed files: ${removed_files}"
+        echo "removed files: ${removed_files[@]}"
 
     - name: "iterate through added files"
       run: |
