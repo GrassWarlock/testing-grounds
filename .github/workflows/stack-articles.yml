@@ -51,7 +51,7 @@ jobs:
         done
     - name: "iterate through modified files"
       run: |
-      echo "h"
+        echo "h"
     - name: "iterate through removed files"
       run: |
         for removed_file in "${removed_files[@]}" 
