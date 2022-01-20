@@ -61,7 +61,7 @@ Source requests should be created at https://github.com/tachiyomiorg/tachiyomi-e
 <details><summary>Contributing</summary>
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
-</details>
+</detail
 
 <details><summary>Code of Conduct</summary>
 
