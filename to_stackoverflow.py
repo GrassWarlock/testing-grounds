@@ -51,7 +51,7 @@ if file_path.endswith('.md'):
     body = "".join(lines)
     article_type = "knowledge-article"
     tags = [x.split(".")[0] for x in file_path.split("/") if len(x) > 1]
-    payload = {'title' : title, 'body' : body, 'article_type' : article_type, 'tags' : tags, 'key' : key, 'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros'}
+    payload = {'title' : title, 'body' : body, 'article_type' : article_type, 'tags' : tags, 'key' : key, 'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros', 'filter' : 'default'}
     print(payload)
 
     #SCENARIO2: THE .MD FILE WAS ADDED
