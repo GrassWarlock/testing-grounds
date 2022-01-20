@@ -26,7 +26,7 @@ If you want to try new features before they get to the stable release, you can d
 ## Issues, Feature Requests and Contributing
 
 Please make sure to read the full guidelines. Your issue may be closed without warning if you do not.
-
+ss
 <details><summary>Issues</summary>
 
 1. **Before reporting a new issue, take a look at the [FAQ](https://tachiyomi.org/help/faq/), the [changelog](https://github.com/tachiyomiorg/tachiyomi/releases) and the already opened [issues](https://github.com/tachiyomiorg/tachiyomi/issues).**
