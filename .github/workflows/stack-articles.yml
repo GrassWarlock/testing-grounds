@@ -50,4 +50,4 @@ jobs:
         done
 
     - name: "done!"
-      run: echo "🔎 Pushed from ${{ github.ref }} to ${{ github.repository }} and updated StackOverflow articles accordingly."name: Update StackOverflow Articles
+      run: echo "🔎 Pushed from ${{ github.ref }} to ${{ github.repository }} and updated StackOverflow articles accordingly."
