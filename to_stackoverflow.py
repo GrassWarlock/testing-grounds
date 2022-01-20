@@ -57,10 +57,12 @@ if file_path.endswith('.md'):
         print("Adding and indexing ", file_name, " as a StackOverflow article...")
         r = requests.post(base_url + "2.3/articles/add", data = payload)
         print (r.url)
+        '''
         j[file_name] = json.load(r.text)["items"][0]["article_id"]
         index_file.seek(0)
         json.dump(j, index_file, indent=4, sort_keys=True)
         print("success")
+        '''
         exit()
 
     #SCENARIO3: THE .MD FILE WAS EDITED
