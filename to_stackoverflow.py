@@ -56,7 +56,7 @@ if file_path.endswith('.md'):
     if operation == "add":
         print("Adding and indexing ", file_name, " as a StackOverflow article...")
         r = requests.post(base_url + "2.3/articles/add", data = payload)
-        print (r.url)
+        print (r.text)
         '''
         j[file_name] = json.load(r.text)["items"][0]["article_id"]
         index_file.seek(0)
