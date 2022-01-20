@@ -43,26 +43,24 @@ if file_path.endswith('.md'):
     lines = open(file_path, 'r').readlines()
     for line in lines:
         if line.startswith("#"):
-            title = line.replace("#", "", 1).replace("\n", "")
+            title = line.replace("#", "", 1)
             lines.remove(line)
             break
     body = "".join(lines)
     article_type = "knowledge-article"
     tags = [x.split(".")[0] for x in file_path.split("/") if len(x) > 1]
-    payload = {"title" : title, "body" : body, "article_type" : article_type, "tags" : tags, "key" : key, "access_token" : access_token}
+    payload = {'title' : title, 'body' : body, 'article_type' : article_type, 'tags' : tags, 'key' : key, 'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros'}
     print(payload)
 
     #SCENARIO2: THE .MD FILE WAS ADDED
     if operation == "add":
         print("Adding and indexing ", file_name, " as a StackOverflow article...")
-        r = requests.post(base_url + "2.3/articles/add", data = payload)
-        print (r.text)
-        '''
+        r = requests.post(base_url + "2.3/articles/add", headers = {"X-API-Access-Token" : access_token}, data = payload)
+        print(r.text)
         j[file_name] = json.load(r.text)["items"][0]["article_id"]
         index_file.seek(0)
         json.dump(j, index_file, indent=4, sort_keys=True)
         print("success")
-        '''
         exit()
 
     #SCENARIO3: THE .MD FILE WAS EDITED
