@@ -59,7 +59,7 @@ Source requests should be created at https://github.com/tachiyomiorg/tachiyomi-e
 </details>
 
 <details><summary>Contributing</summarssss
-ss
+sssss
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
 </detail
 
