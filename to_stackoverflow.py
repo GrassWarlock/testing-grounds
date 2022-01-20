@@ -43,7 +43,7 @@ if file_path.endswith('.md'):
     lines = open(file_path, 'r').readlines()
     for line in lines:
         if line.startswith("#"):
-            title = line.replace("#", "", 1)
+            title = line.replace("#", "", 1).replace("\n", "")
             lines.remove(line)
             break
     body = "".join(lines)
@@ -55,7 +55,8 @@ if file_path.endswith('.md'):
     #SCENARIO2: THE .MD FILE WAS ADDED
     if operation == "add":
         print("Adding and indexing ", file_name, " as a StackOverflow article...")
-        r = requests.post(base_url + "2.3/articles/add?", data = payload)
+        r = requests.post(base_url + "2.3/articles/add", data = payload)
+        print (r.url)
         j[file_name] = json.load(r.text)["items"][0]["article_id"]
         index_file.seek(0)
         json.dump(j, index_file, indent=4, sort_keys=True)
