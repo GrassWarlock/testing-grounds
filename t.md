@@ -52,7 +52,7 @@ DON'T: https://github.com/tachiyomiorg/tachiyomi/issues/75
 
 <details><summary>Feature Requests</summary>
 
-* Write a detailed issue, explaining what it should do or how. Avoid writing just "like X app does"
+* Write a detailed issue, ssexplaining what it should do or how. Avoid writing just "like X app does"
 * Include screenshot (if needed)
 
 Source requests should be created at https://github.com/tachiyomiorg/tachiyomi-extensions, they do not belong in this repository.
