@@ -58,7 +58,7 @@ DON'T: https://github.com/tachiyomiorg/tachiyomi/issues/75
 Source requests should be created at https://github.com/tachiyomiorg/tachiyomi-extensions, they do not belong in this repository.
 </details>
 
-<details><summary>Contributing</summarssss
+<details><summary>Contributing</sumssmarssss
 ssssssda
 See [CONTRIBUTING.md](./CONTRIBUTING.md).ss
 </detail
