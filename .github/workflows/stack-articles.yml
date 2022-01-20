@@ -31,11 +31,11 @@ jobs:
     - name: "map list of changed files to variables and print their names"
       run: |
         mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added }}')
-        mapfile -d ',' -t modified_files < <(printf '%s,' '${{ steps.files.outputs.modified }}')
+        mapfile -d ',' -t modified_files < <(printf '${{ steps.files.outputs.modified }}')
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
         echo "added files: ${added_files[@]}"
         echo "modified files: ${modified_files[@]}"
-        echo "removed files: ${removed_files}"
+        echo "removed files: ${removed_files[@]}"
 
     - name: "iterate through added files"
       run: |
@@ -45,7 +45,7 @@ jobs:
         done
     - name: "iterate through modified files"
       run: |
-        for modified_file in "${{ steps.files.outputs.modified }}"
+        for modified_file in "${modified_files[@]}"
         do
           python3 to_stackoverflow.py "${modified_file}" modify "$KEY" "$ACCESS_TOKEN"
         done
