@@ -34,9 +34,11 @@ if file_path.endswith('.md'):
                 break
         if article_id == None:
             print("The file ", file_name, " is not indexed. please remove from StackOverflow manually.")
+            index_file.close()
             exit()
-        r = requests.post(base_url + "2.3/articles/{}/delete?key={}&access_token={}".format(article_id, key, access_token))
+        r = requests.post(base_url + "2.3/articles/{}/delete?".format(article_id), headers = {'X-API-Access-Token' : access_token}, data= {'key' : key,'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros'})
         print("success")
+        index_file.close()
         exit()
 
     #URL ARGUMENTS FOR ADDING/EDITING ARTICLES
@@ -57,9 +59,10 @@ if file_path.endswith('.md'):
         print("Adding and indexing ", file_name, " as a StackOverflow article...")
         r = requests.post(base_url + "2.3/articles/add", headers = {"X-API-Access-Token" : access_token}, data = payload)
         print(r.text)
-        j[file_name] = json.load(r.text)["items"][0]["article_id"]
+        j[file_name] = json.loads(r.text)["items"][0]["article_id"]
         index_file.seek(0)
         json.dump(j, index_file, indent=4, sort_keys=True)
+        index_file.close()
         print("success")
         exit()
 
@@ -73,6 +76,7 @@ if file_path.endswith('.md'):
         if article_id == None:
             print("The file ", file_name, " is not indexed. please edit manually then add it to index.")
             exit()
-        r = requests.post(base_url + "2.3/articles/{}/edit?key={}".format(article_id), data = payload)
+        r = requests.post(base_url + "2.3/articles/{}/delete?".format(article_id), headers = {'X-API-Access-Token' : access_token}, data = payload)
+        index_file.close()
         print("success")
         exit()
