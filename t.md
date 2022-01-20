@@ -33,7 +33,7 @@ ss
 2. If you are unsure, ask here: [![Discord](https://img.shields.io/discord/349436576037732353.svg)](https://discord.gg/tachiyomi)
 
 </details>
-
+ss
 <details><summary>Bugs</summary>
 
 * Include version (More → About → Version)

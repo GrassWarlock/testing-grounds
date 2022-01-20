@@ -46,8 +46,8 @@ jobs:
     - name: "iterate through modified files"
       run: |
         for modified_file in "${modified_files[@]}"
-        echo "iterated"
         do
+          echo "iterated"
           python3 to_stackoverflow.py "${modified_file}" modify "$KEY" "$ACCESS_TOKEN"
         done
     - name: "iterate through removed files"
