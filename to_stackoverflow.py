@@ -4,11 +4,10 @@ from textwrap import indent
 import requests
 import json
 
-print("hello")
 base_url = "https://api.stackexchange.com/"
 file_path = sys.argv[1]
 file_name = sys.argv[1].split("/")[-1]
-
+article_id = None
 
 if file_path.endswith('.md'):
     #READ ALL SCRIPT ARGUMENTS (PROVIDED IN THE .YML FILE)

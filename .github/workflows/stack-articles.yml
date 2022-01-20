@@ -28,7 +28,7 @@ jobs:
         python-version: '3.x'
     - name: "install needed packages"
       run: pip3 install requests
-    - name: "map files and run script"
+    - name: "map changed files to array variables and run script on each"
       run: |
         mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added }}')
         mapfile -d ',' -t modified_files < <(printf '%s,' '${{ steps.files.outputs.modified }}')

@@ -34,7 +34,7 @@ ss
 
 </details>
 ss
-<details><summary>Bugs</summary>
+<details><summary>Bugs</summary>ssssss
 
 * Include version (More → About → Version)
  * If not latest, try updating, it may have already been solved
