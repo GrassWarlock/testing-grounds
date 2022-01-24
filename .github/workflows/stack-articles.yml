@@ -51,16 +51,16 @@ jobs:
         done
     - name: "commit changes to articles index and push them to repo"
       run: |
+        echo $(git rev-list --count @{u}..HEAD)
+        if [ $(git rev-list --count @{u}..HEAD) == 0 ]
+        then
+          echo "hey file not changed lol"
+        fi
         git remote set-url --push origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add -A
         git commit -m "Update Articles Index" -a
-        echo $(git rev-list --count @{u}..HEAD)
-        if [ $(git rev-list --count @{u}..HEAD) == "0" ]
-        then
-          echo "hey file not changed lol"
-        fi
         git push HEAD:master
     - name: "done!"
       run: echo "🔎 Pushed from ${{ github.ref }} to ${{ github.repository }} and updated StackOverflow articles accordingly."
