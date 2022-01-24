@@ -51,9 +51,12 @@ jobs:
         done
     - name: "commit changes to articles index and push them to repo"
       run: |
-        cat articles_index.json
+        echo ${GITHUB_ACTOR}
+        echo ${GITHUB_TOKEN}
+        echo ${GITHUB_REPOSITORY}
         git config --global user.email "action@github.com"
         git config --global user.name "Github Action"
+        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git add -A
         echo $(git rev-list --count HEAD..@{u})
         echo $(git rev-list --count @{u}..HEAD)
