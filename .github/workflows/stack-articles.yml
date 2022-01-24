@@ -56,9 +56,10 @@ jobs:
         git config user.email github-actions@github.com
         git add -A
         git commit -m "Update Articles Index" -a
-        if [ 11 != 1 ]
+        echo $(git rev-list --count)
+        if [ $(git rev-list --count) == "0" ]
         then
-          echo "hey"
+          echo "hey file not changed lol"
         fi
         git push HEAD:master
     - name: "done!"
