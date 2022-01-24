@@ -56,7 +56,7 @@ jobs:
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git checkout -b article_branch main
         git fetch origin
-        git pull origin
+        git pull origin article_branch
         git add -A
         echo $(git rev-list --count HEAD..@{u})
         echo $(git rev-list --count @{u}..HEAD)
