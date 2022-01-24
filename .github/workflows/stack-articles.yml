@@ -54,7 +54,6 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git remote set-url --push origin https://your_username:$GITHUB_TOKEN@github.com/your/repo
         git add -A
         git commit -m "Update Articles Index" -a
         git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master
