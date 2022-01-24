@@ -54,7 +54,7 @@ jobs:
         cat articles_index.json
         git config --global user.email "action@github.com"
         git config --global user.name "Github Action"
-        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git remote set-url origin ${{ secrets.ssh }}
         git add -A
         echo $(git rev-list --count HEAD..@{u})
         echo $(git rev-list --count @{u}..HEAD)
@@ -62,7 +62,7 @@ jobs:
         then
         echo "pushing..."
         git commit -m "Update Articles Index" -a
-        git push HEAD:master
+        git push origin HEAD:master
         else
           echo "Index file not changed. Exiting..."
         fi
