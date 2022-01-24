@@ -55,6 +55,7 @@ jobs:
         git config user.email github-actions@github.com
         git add -A
         git commit -m "Update Articles Index" -a
+        echo $(git rev-list --count @{u}..HEAD)
         if [ $(git rev-list --count @{u}..HEAD) != 0 ]
         then
           git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master
