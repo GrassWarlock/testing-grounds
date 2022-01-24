@@ -59,7 +59,8 @@ if file_path.endswith('.md'):
         print("Adding and indexing ", file_name, " as a StackOverflow article...")
         r = requests.post(base_url + "2.3/articles/add", headers = {"X-API-Access-Token" : access_token}, data = payload)
         print(r.text)
-        j[file_name] = json.loads(r.text)["items"][0]["article_id"]
+        j[file_name] = "123281312398"
+        #j[file_name] = json.loads(r.text)["items"][0]["article_id"]
         with open("articles_index.json", "w") as k:
             json.dump(j, k, indent=4, sort_keys=True)
         print("success")
