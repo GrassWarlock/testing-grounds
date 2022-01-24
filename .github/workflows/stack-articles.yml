@@ -56,7 +56,7 @@ jobs:
         git add -A
         echo $(git rev-list --count HEAD..@{u})
         echo $(git rev-list --count @{u}..HEAD)
-        if [ $(git rev-list --count @{u}..HEAD}) == 0 ]
+        if [ $(git rev-list --count @{u}..HEAD) == 0 ]
         then
         echo "pushing..."
         git commit -m "Update Articles Index" -a
