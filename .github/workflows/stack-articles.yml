@@ -51,7 +51,7 @@ jobs:
         done
     - name: "commit changes to articles index and push them to repo"
       run: |
-        git remote set-url --push origin ${{ secrets.ssh }}
+        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git add -A
         echo $(git rev-list --count @{u}..HEAD)
         if [ $(git rev-list --count @{u}..HEAD) != 0 ]
