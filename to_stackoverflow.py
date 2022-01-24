@@ -37,6 +37,7 @@ if file_path.endswith('.md'):
         r = requests.post(base_url + "2.3/articles/{}/delete?".format(article_id), headers = {'X-API-Access-Token' : access_token}, data= {'key' : key,'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros'})
         with open("articles_index.json", "w") as k:
             json.dump(j, k, indent=4, sort_keys=True)
+            k.close()
         print("success")
         index_file.close()
         exit()
@@ -63,6 +64,7 @@ if file_path.endswith('.md'):
         #j[file_name] = json.loads(r.text)["items"][0]["article_id"]
         with open("articles_index.json", "w") as k:
             json.dump(j, k, indent=4, sort_keys=True)
+            k.close()
         print("success")
         index_file.close()
         exit()
