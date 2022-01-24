@@ -38,6 +38,7 @@ if file_path.endswith('.md'):
         with open("articles_index.json", "w") as k:
             json.dump(j, k, indent=4, sort_keys=True)
             k.close()
+            print(index_file.read())
         print("success")
         index_file.close()
         exit()
