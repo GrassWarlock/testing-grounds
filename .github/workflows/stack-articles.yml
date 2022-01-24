@@ -13,6 +13,7 @@ jobs:
     env:
       KEY: ${{ secrets.STACK_KEY }} 
       ACCESS_TOKEN: ${{ secrets.STACK_ACCESS_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #### NO NEED TO REPLACE ANYTHING BELOW THIS LINE ####
     steps:
     - name: "import checkout action"
@@ -49,8 +50,6 @@ jobs:
           python3 to_stackoverflow.py ${removed_file} remove "$KEY" "$ACCESS_TOKEN"
         done
     - name: "commit changes to articles index and push them to repo"
-      env: 
-        GITHUB_TOKEN = ${{ github.token }}
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
