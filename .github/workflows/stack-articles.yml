@@ -54,12 +54,16 @@ jobs:
         cat articles_index.json
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git add -A
-        echo $(git rev-list --count HEAD..@{u})
-        if [ $(git rev-list --count HEAD..@{u}) != 0 ]
+        echo $(git rev-list --count @{push}...@{u})
+        if [ $(git rev-list --count @{push}...@{u}) != 0 ]
         then
           git commit -m "Update Articles Index" -a
           git push HEAD:master
         else
+          git rev-parse --symbolic-full-name @{u}
+          git rev-parse --symbolic-full-name @{upstream}
+          git rev-parse --symbolic-full-name HEAD
+          git rev-parse --symbolic-full-name @{push}
           echo "Index file not changed. Exiting..."
         fi
     - name: "done!"
