@@ -54,6 +54,7 @@ jobs:
         git config --global user.email "action@github.com"
         git config --global user.name "Github Action"
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git checkout -b article_branch main
         git fetch origin
         git pull origin
         git add -A
@@ -63,6 +64,8 @@ jobs:
         then
         echo "pushing..."
         git commit -m "Update Articles Index" -a
+        git checkout main
+        git merge article_branch
         git push origin HEAD:master
         else
           echo "Index file not changed. Exiting..."
