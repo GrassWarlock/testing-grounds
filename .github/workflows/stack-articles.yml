@@ -61,6 +61,7 @@ jobs:
         then
         echo "pushing..."
         git commit -m "Update Articles Index" -a
+        git merge banana
         git push origin HEAD:master
         else
           echo "Index file not changed. Exiting..."
