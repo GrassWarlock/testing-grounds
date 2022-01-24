@@ -54,8 +54,8 @@ jobs:
         cat articles_index.json
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git add -A
-        echo $(git rev-list --count @{u}..HEAD)
-        if [ $(git rev-list --count @{u}..HEAD) != 0 ]
+        echo $(git rev-list --count origin..HEAD)
+        if [ $(git rev-list --count origin..HEAD) != 0 ]
         then
           git commit -m "Update Articles Index" -a
           git push HEAD:master
