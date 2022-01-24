@@ -16,7 +16,7 @@ if file_path.endswith('.md'):
     access_token = sys.argv[4]
     #READ ARTICLE IDs INDEX FILE (EXIT IF FAILED)
     try:
-        index_file = open("articles_index.json", 'r+')
+        index_file = open("articles_index.json", 'r')
         j = json.load(index_file)
     except:
         print("index file not found or failed to load.")
@@ -29,14 +29,14 @@ if file_path.endswith('.md'):
             if name == file_name:
                 article_id = j[name]
                 j.pop(name, None)
-                index_file.seek(0)
-                json.dump(j, index_file, indent=4, sort_keys=True)
                 break
-        if article_id == None:
+        if article_id is None:
             print("The file ", file_name, " is not indexed. please remove from StackOverflow manually.")
             index_file.close()
             exit()
         r = requests.post(base_url + "2.3/articles/{}/delete?".format(article_id), headers = {'X-API-Access-Token' : access_token}, data= {'key' : key,'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros'})
+        with open("articles_index.json", "w") as k:
+            json.dump(j, k, indent=4, sort_keys=True)
         print("success")
         index_file.close()
         exit()
@@ -60,10 +60,10 @@ if file_path.endswith('.md'):
         r = requests.post(base_url + "2.3/articles/add", headers = {"X-API-Access-Token" : access_token}, data = payload)
         print(r.text)
         j[file_name] = json.loads(r.text)["items"][0]["article_id"]
-        index_file.seek(0)
-        json.dump(j, index_file, indent=4, sort_keys=True)
-        index_file.close()
+        with open("articles_index.json", "w") as k:
+            json.dump(j, k, indent=4, sort_keys=True)
         print("success")
+        index_file.close()
         exit()
 
     #SCENARIO3: THE .MD FILE WAS EDITED
@@ -73,7 +73,7 @@ if file_path.endswith('.md'):
             if name == file_name:
                 article_id = j[name]
                 break
-        if article_id == None:
+        if article_id is None:
             print("The file ", file_name, " is not indexed. please edit manually then add it to index.")
             exit()
         r = requests.post(base_url + "2.3/articles/{}/delete?".format(article_id), headers = {'X-API-Access-Token' : access_token}, data = payload)
