@@ -63,7 +63,7 @@ jobs:
         then
         echo "pushing..."
         git commit -m "Update Articles Index" -a
-        git push -f origin master
+        git push -f origin HEAD:master
         else
           echo "Index file not changed. Exiting..."
         fi
