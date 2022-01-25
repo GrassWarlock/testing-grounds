@@ -57,8 +57,10 @@ jobs:
         git push -u origin main
         git branch -vv
         git add -A
-        echo $(git rev-list --count HEAD..@{upstream})
-        echo $(git rev-list --count @{upstream}..HEAD)
+        echo $(git rev-list --count main..@{upstream})
+        echo $(git rev-list --count @{upstream}..main)
+        echo $(git rev-list @{upstream}..main)
+
         if [ $(git rev-list --count @{u}..HEAD) != 0 ]
         then
         echo "pushing..."
