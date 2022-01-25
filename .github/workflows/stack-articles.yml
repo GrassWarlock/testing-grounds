@@ -31,8 +31,6 @@ jobs:
       run: pip3 install requests
     - name: "map changed files to array variables and run script on each"
       run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "Github Action"
         mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added }}')
         mapfile -d ',' -t modified_files < <(printf '%s,' '${{ steps.files.outputs.modified }}')
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
@@ -53,16 +51,18 @@ jobs:
         done
     - name: "commit changes to articles index and push them to repo"
       run: |
-        cat articles_index.json
-        git branch
-        git remote -v
+        git config --global user.email "action@github.com"
+        git config --global user.name "Github Action"
+        git branch -a
+        $ git branch -vv  
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        git remote -v
-        git branch
+        $ git branch -vv  
+        git branch --set-upstream-to origin master  
+        git branch -vv  
         git add -A
-        echo $(git rev-list --count HEAD..@{u})
-        echo $(git rev-list --count @{u}..HEAD)
-        if [ $(git rev-list --count @{u}..HEAD) == 0 ]
+        echo $(git rev-list --count HEAD..@{upstream})
+        echo $(git rev-list --count @{upstream}..HEAD)
+        if [ $(git rev-list --count @{u}..HEAD) != 0 ]
         then
         echo "pushing..."
         git commit -m "Update Articles Index" -a
