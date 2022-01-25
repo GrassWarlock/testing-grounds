@@ -31,8 +31,6 @@ jobs:
       run: pip3 install requests
     - name: "map changed files to array variables and run script on each"
       run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "Github Action"
         mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added }}')
         mapfile -d ',' -t modified_files < <(printf '%s,' '${{ steps.files.outputs.modified }}')
         mapfile -d ',' -t removed_files < <(printf '%s,' '${{ steps.files.outputs.removed }}')
@@ -53,12 +51,17 @@ jobs:
         done
     - name: "commit changes to articles index and push them to repo"
       run: |
-
+        cat articles_index.json
+        git config --global user.email "action@github.com"
+        git config --global user.name "Github Action"
         git branch
         git remote -v
         git add -A
         echo $(git rev-list --count HEAD..@{u})
         echo $(git rev-list --count @{u}..HEAD)
+        echo "1"
+        cat articles_index.json
+
         if [ $(git rev-list --count @{u}..HEAD) == 0 ]
         then
         echo "pushing..."
