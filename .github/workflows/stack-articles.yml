@@ -54,9 +54,9 @@ jobs:
         git config --global user.email "action@github.com"
         git config --global user.name "Github Action"
         git branch -a
-        $ git branch -vv  
+        git branch -vv  
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        $ git branch -vv  
+        git branch -vv  
         git branch --set-upstream-to origin master  
         git branch -vv  
         git add -A
