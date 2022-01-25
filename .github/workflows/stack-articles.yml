@@ -57,12 +57,12 @@ jobs:
         git push -u origin main
         git branch -vv
         git add -A
-        echo $(git rev-list --count HEAD:main..@{upstream})
-        echo $(git rev-list --count @{upstream}..HEAD:main)
+        git commit -m "Update Articles Index" -a
+        echo $(git rev-list --count HEAD..@{upstream})
+        echo $(git rev-list --count @{upstream}..HEAD)
         if [ $(git rev-list --count @{u}..HEAD) != 0 ]
         then
         echo "pushing..."
-        git commit -m "Update Articles Index" -a
         git push origin HEAD:main
         else
           echo "Index file not changed. Exiting..."
