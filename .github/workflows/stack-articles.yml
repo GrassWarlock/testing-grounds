@@ -57,7 +57,7 @@ jobs:
         git branch -vv  
         git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git branch -vv  
-        git branch --set-upstream-to origin master  
+        git branch --set-upstream-to origin main  
         git branch -vv  
         git add -A
         echo $(git rev-list --count HEAD..@{upstream})
