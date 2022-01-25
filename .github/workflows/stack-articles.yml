@@ -53,9 +53,8 @@ jobs:
         done
     - name: "commit changes to articles index and push them to repo"
       run: |
+        
         git branch
-        git remote -v
-        git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git remote -v
         git add -A
         echo $(git rev-list --count HEAD..@{u})
