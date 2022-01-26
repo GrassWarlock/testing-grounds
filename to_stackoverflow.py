@@ -51,7 +51,12 @@ if file_path.endswith('.md'):
             break
     body = "".join(lines)
     article_type = "knowledge-article"
-    tags = [x.split(".")[0] for x in file_path.split("/") if len(x) > 1]
+    tags_list = [x.split(".")[0] for x in file_path.split("/") if len(x) > 1]
+    tags=""
+    for tag in tags_list:
+        if tag == tags_list[-1]:
+            tags = tags + tag
+        tags = tags + tags + ", "
     payload = {'title' : title, 'body' : body, 'article_type' : article_type, 'tags' : tags, 'key' : key, 'site' : 'stackoverflow', 'team' : 'stackoverflow.com/c/ceros', 'filter' : 'default'}
     print(payload)
 
